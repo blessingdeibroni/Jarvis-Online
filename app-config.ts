@@ -1,4 +1,5 @@
 import type { AppConfig } from './lib/types';
+
 export type { AppConfig };
 
 export const APP_CONFIG_DEFAULTS: AppConfig = {
@@ -12,8 +13,8 @@ export const APP_CONFIG_DEFAULTS: AppConfig = {
   isPreConnectBufferEnabled: true,
 
   logo: '/jarvis logo.jpg',
-accent: '#002cf2',
-logoDark: '/jarvis logo.jpg',
+  accent: '#002cf2',
+  logoDark: '/jarvis logo.jpg',
   accentDark: '#1fd5f9',
   startButtonText: 'Talk to Jarvis',
 
