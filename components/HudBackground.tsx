@@ -103,12 +103,12 @@ function pointsToPath(points: Array<{ x: number; y: number }>) {
     .map((point, index) => `${index === 0 ? 'M' : 'L'} ${point.x} ${point.y}`)
     .join(' ');
 }
-
 interface HudBackgroundProps {
   visible?: boolean;
+  intensity?: number;
 }
 
-export function HudBackground({ visible = true }: HudBackgroundProps) {
+export function HudBackground({ visible = true, intensity = 1 }: HudBackgroundProps) {
   const [height, setHeight] = useState('6.8898');
   const [targeting, setTargeting] = useState('7.6898');
   const [tracking, setTracking] = useState('500216441');
@@ -149,7 +149,7 @@ export function HudBackground({ visible = true }: HudBackgroundProps) {
           aria-hidden
           className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={{ opacity: intensity }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
