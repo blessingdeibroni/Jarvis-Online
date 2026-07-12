@@ -26,5 +26,5 @@ export interface AppConfig {
     audioVisualizerWaveLineWidth?: 3;
   
     agentName?: 'Jarvis';
-    sandboxId?: undefined;
+    sandboxId?: string;
   }
