@@ -87,7 +87,6 @@ export default async function RootLayout({ children }: RootLayoutProps) {
                 className="hidden size-6 dark:block"
               />
             </a>
-          
           </header>
 
           {children}

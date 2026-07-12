@@ -1,4 +1,5 @@
 import type { AppConfig } from './lib/types';
+
 export type { AppConfig };
 
 export const APP_CONFIG_DEFAULTS: AppConfig = {

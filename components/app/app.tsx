@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo } from 'react';
+import dynamic from 'next/dynamic';
 import { TokenSource } from 'livekit-client';
 import { useSession, useSessionContext } from '@livekit/components-react';
 import { WarningIcon } from '@phosphor-icons/react/dist/ssr';
@@ -8,16 +9,15 @@ import type { AppConfig } from '@/app-config';
 import { AgentSessionProvider } from '@/components/agents-ui/agent-session-provider';
 import { StartAudioButton } from '@/components/agents-ui/start-audio-button';
 import { ViewController } from '@/components/app/view-controller';
-import dynamic from 'next/dynamic';
+import { Toaster } from '@/components/ui/sonner';
+import { useAgentErrors } from '@/hooks/useAgentErrors';
+import { useDebugMode } from '@/hooks/useDebug';
+import { getSandboxTokenSource } from '@/lib/utils';
 
 const HudBackground = dynamic(
   () => import('@/components/HudBackground').then((mod) => mod.HudBackground),
   { ssr: false }
 );
-import { Toaster } from '@/components/ui/sonner';
-import { useAgentErrors } from '@/hooks/useAgentErrors';
-import { useDebugMode } from '@/hooks/useDebug';
-import { getSandboxTokenSource } from '@/lib/utils';
 
 const IN_DEVELOPMENT = process.env.NODE_ENV !== 'production';
 
