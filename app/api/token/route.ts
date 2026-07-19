@@ -12,8 +12,9 @@ async function checkAuth() {
 async function generateToken() {
   const apiKey = process.env.LIVEKIT_API_KEY;
   const apiSecret = process.env.LIVEKIT_API_SECRET;
+  const serverUrl = process.env.LIVEKIT_URL;
 
-  if (!apiKey || !apiSecret) {
+  if (!apiKey || !apiSecret || !serverUrl) {
     return NextResponse.json({ error: "Missing LiveKit credentials" }, { status: 500 });
   }
 
@@ -29,7 +30,10 @@ async function generateToken() {
     roomCreate: true,
   });
 
-  return NextResponse.json({ token: await token.toJwt() });
+  return NextResponse.json({
+    serverUrl,
+    participantToken: await token.toJwt(),
+  });
 }
 
 export async function GET() {
